@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Balanzio</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">SignIn</string>
+    <string name="label_name">Nama</string>
+    <string name="title_register_page">Lengkapi data di bawah ini</string>
+    <string name="label_BB">Berat Badan</string>
+    <string name="label_TB">Tinggi Badan</string>
+    <string name="label_Umur">Umur</string>
+    <string name="label_JenisKelamin">Jenis Kelamin</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="title_login_page">Masuk</string>
+    <string name="pertanyaan1">Belum punya akun?</string>
+    <string name="daftar">Daftar</string>
+    <string name="pertanyaan2">Sudah punya akun?</string>
+    <string name="masuk">Masuk</string>
+</resources>
