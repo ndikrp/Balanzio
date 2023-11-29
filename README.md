@@ -1,8 +1,15 @@
 # Balanzio_Cloud Computing
-![EasyMeal](https://github.com/Team-EasyMeal-C23-PC677/EasyMeal_CC/assets/97155903/1568123a-f59e-4cb0-8c62-085af733276c)
+![EasyMeal](https://github.com/ndikrp/Balanzio/blob/2fbd99f001acf4ae1090a2943bb85a5d47ceec78/assets/balanzio-datar.png)
 
 Hello guys!! this is backend from application Easy Meal
 
 # EasyMeal-Cloud Computing
-Hello, this is backend EasyMeal application made by Capstone Team C23-PC677
-if you want to know our team member please check this [link](https://github.com/Team-EasyMeal-C23-PC677#-team-member)
+Hello, this is backend Balanzio application made by Capstone Team CH2-PS340
+
+
+# Cloud Computing Team
+
+|  Name | Bangkit ID | Contacts |
+| ------------ | ------------ | ------------ |
+| Andhika Rizky Aulia	 | C296BSY3630 | [Github](https://github.com/ndikrp) & [Linkedin](https://www.linkedin.com/in/andhika-rizky/)|
+| Mirza Khazim Nugraha	 | C296BSY3892	| [Github](https://github.com/mirzakhzm) & [Linkedin](https://www.linkedin.com/in/mirza-khazim-nugraha-43578221b/) |
