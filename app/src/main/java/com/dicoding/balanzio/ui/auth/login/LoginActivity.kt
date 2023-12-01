@@ -1,4 +1,4 @@
-package com.dicoding.balanzio.ui.auth
+package com.dicoding.balanzio.ui.auth.login
 
 import android.content.Intent
 import android.os.Build
@@ -7,17 +7,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
-import androidx.activity.viewModels
 import com.dicoding.balanzio.MainActivity
 import com.dicoding.balanzio.R
-import com.dicoding.balanzio.ViewModelFactory
 import com.dicoding.balanzio.databinding.ActivityLoginBinding
+import com.dicoding.balanzio.ui.auth.signup.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<LoginViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

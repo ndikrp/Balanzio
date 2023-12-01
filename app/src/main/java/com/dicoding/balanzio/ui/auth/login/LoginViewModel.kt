@@ -1,4 +1,4 @@
-package com.dicoding.balanzio.ui.auth
+package com.dicoding.balanzio.ui.auth.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

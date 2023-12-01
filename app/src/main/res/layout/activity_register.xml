@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.RegisterActivity">
+    tools:context=".ui.auth.signup.RegisterActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -84,7 +84,7 @@
         android:id="@+id/tl_BB"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeColor="@color/accentColor"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,7 +114,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tl_TB"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         app:boxStrokeColor="@color/accentColor"
@@ -146,7 +146,7 @@
         android:id="@+id/textInputLayout_JenisKelamin"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeColor="@color/accentColor"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -176,7 +176,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout_Umur"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/accentColor"
         android:layout_marginEnd="32dp"
@@ -263,7 +263,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/signupButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
@@ -285,7 +285,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/pertanyaan2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/signupButton" />
 
     <TextView
         android:id="@+id/tv_klik_masuk"
@@ -299,7 +299,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tv_pertanyaan1"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/signupButton" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"
@@ -318,7 +318,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_begin="665dp"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

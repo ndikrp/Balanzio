@@ -1,15 +1,12 @@
 package com.dicoding.balanzio.ui.splash
 
-import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.dicoding.balanzio.R
 import com.dicoding.balanzio.databinding.ActivitySplashscreenBinding
-import com.dicoding.balanzio.ui.auth.LoginActivity
+import com.dicoding.balanzio.ui.auth.login.LoginActivity
 
 class SplashscreenActivity : AppCompatActivity() {
 
