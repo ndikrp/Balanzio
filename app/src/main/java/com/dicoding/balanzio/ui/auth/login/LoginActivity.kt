@@ -7,12 +7,24 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import com.dicoding.balanzio.MainActivity
 import com.dicoding.balanzio.R
+import com.dicoding.balanzio.ViewModelFactory
 import com.dicoding.balanzio.databinding.ActivityLoginBinding
 import com.dicoding.balanzio.ui.auth.signup.RegisterActivity
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
+import com.dicoding.balanzio.data.Result
 
 class LoginActivity : AppCompatActivity() {
+
+    private  val viewModel by viewModels<LoginViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     private lateinit var binding: ActivityLoginBinding
 
@@ -32,10 +44,49 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.loginButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            val email = binding.emailEditText.text.toString()
+            val pass = binding.passwordEditText.text.toString()
+            val jsonObject = JSONObject().apply {
+                put(EMAIL, email)
+                put(PASSWORD, pass)
+
+            }
+            val jsonObjectString = jsonObject.toString()
+            val requestBody =
+                jsonObjectString.toRequestBody("application/json;charset=utf-8".toMediaTypeOrNull())
+            if (email.isEmpty()) {
+                binding.emailEditText.error = "Email tidak boleh kosong"
+                return@setOnClickListener
+            }
+            if (pass.isEmpty()) {
+                binding.passwordEditText.error = "Password tidak boleh kosong"
+                return@setOnClickListener
+            }
+            if (pass.isNotEmpty() && email.isNotEmpty()) {
+                viewModel.login(requestBody).observe(this) { result ->
+                    when (result) {
+                        is Result.Success -> {
+                            AlertDialog.Builder(this).apply {
+                                setTitle("Login Success")
+                                setMessage("Selamat Datang!")
+                                create()
+                                show()
+                            }
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        }
+                        is Result.Error -> {
+                            showToast(result.error)
+                        }
+                        else -> {}
+                    }
+                }
+            }
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setupView() {
@@ -54,5 +105,10 @@ class LoginActivity : AppCompatActivity() {
     private fun goToRegister() {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
+    }
+
+    companion object {
+        private const val EMAIL = "email"
+        private const val PASSWORD = "password"
     }
 }
