@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="@string/menu_beranda"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/menu_riwayat" />
+    <item
+        android:id="@+id/scan"
+        android:title=""
+        android:enabled="false"/>
+    <item
+        android:id="@+id/resep"
+        android:icon="@drawable/ic_recipe"
+        android:title="@string/menu_resep" />
+    <item
+        android:id="@+id/goals"
+        android:icon="@drawable/ic_goals"
+        android:title="@string/menu_target" />
+</menu>
