@@ -1,0 +1,244 @@
+# Import libraries
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.metrics import confusion_matrix, f1_score
+
+# Declare path
+train_dir = r"C:\Users\HP\Downloads\capstone\Dataset_27\Train"
+val_dir = r"C:\Users\HP\Downloads\capstone\Dataset_27\Valid"
+test_dir = r"C:\Users\HP\Downloads\capstone\Dataset_27\Test"
+
+# PREPROCESSING
+# Data Augmentation
+train_generator = tf.keras.preprocessing.image.ImageDataGenerator(
+    rescale=1./255.,
+    horizontal_flip=True,
+    rotation_range=0.2,
+    zoom_range=0.2,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+)
+
+val_generator = tf.keras.preprocessing.image.ImageDataGenerator(
+    rescale=1./255.
+)
+test_generator = tf.keras.preprocessing.image.ImageDataGenerator(
+    rescale=1./255.
+)
+
+# Declare size & Batch
+train_batch_size = 30
+val_batch_size = 30
+test_batch_size = 30
+img_height = 150
+img_width = 150
+
+train_ds = train_generator.flow_from_directory(
+    directory=train_dir,
+    target_size=(img_height, img_width),
+    color_mode='rgb',
+    class_mode='categorical',
+    batch_size=train_batch_size,
+    shuffle=True,
+    seed=42,
+)
+
+val_ds = val_generator.flow_from_directory(
+    directory=val_dir,
+    target_size=(img_height, img_width),
+    color_mode='rgb',
+    class_mode='categorical',
+    batch_size=val_batch_size,
+    shuffle=True,
+    seed=42,
+)
+
+test_ds = test_generator.flow_from_directory(
+    directory=test_dir,
+    target_size=(img_height, img_width),
+    color_mode='rgb',
+    class_mode='categorical',
+    batch_size=test_batch_size,
+    shuffle=False
+)
+
+#Display class
+class_names = train_ds.class_indices
+print(class_names)
+
+for image_batch, labels_batch in train_ds:
+  print(image_batch.shape)
+  print(labels_batch.shape)
+  break
+
+# Fetch the first batch of images and labels from train_ds
+images, labels = next(train_ds)
+
+# Display the first 9 images
+plt.figure(figsize=(10, 10))
+for i in range(9):
+    ax = plt.subplot(3, 3, i + 1)
+    plt.imshow(images[i])
+
+    # Retrieve the label index from the one-hot encoded format
+    label_index = np.argmax(labels[i])
+
+    # Get the class name corresponding to the label index
+    for class_name, index in train_ds.class_indices.items():
+        if index == label_index:
+            plt.title(class_name)
+            break
+
+    plt.axis("off")
+
+plt.tight_layout()
+plt.show()
+
+
+#MAKE THE MODEL
+pre_trained_model = tf.keras.applications.inception_v3.InceptionV3(
+    include_top=True,
+    weights='imagenet',
+    input_tensor=None,
+    input_shape=None,
+    pooling=None,
+    classes=1000,
+    classifier_activation='softmax'
+)
+
+# Adding more layer in top of based model for fine tuning
+inputs = pre_trained_model.input
+
+x = tf.keras.layers.Flatten()(pre_trained_model.output)
+x = tf.keras.layers.Dense(2048, activation='relu')(x)
+x = tf.keras.layers.Dropout(0.5)(x)  # Increase dropout
+
+outputs = tf.keras.layers.Dense(28, activation='softmax')(x)
+
+model = tf.keras.Model(inputs, outputs)
+
+print(model.summary())
+
+
+# Set callback
+class myCallback(tf.keras.callbacks.Callback):
+    def on_epoch_end(self, epoch, logs={}):
+        if logs.get('accuracy') is not None and logs.get('val_accuracy') is not None:
+            if logs.get('accuracy') > 0.90 and logs.get('val_accuracy') > 0.90:
+                print("\nReached 85% accuracy in training and validation. Stopping training.")
+                self.model.stop_training = True
+                print(logs)
+
+callbacks = myCallback()
+
+# Set training parameters
+model.compile(loss = 'categorical_crossentropy',
+              optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001),
+              metrics = ['acc'])
+
+# Run this and see how many epochs it should take before the callback
+# fires, and stops training at 98% accuracy
+history = model.fit(train_ds,
+                    validation_data = val_ds,
+                    epochs = 150,
+                    callbacks = [callbacks])
+
+acc = history.history['acc']
+val_acc = history.history['val_acc']
+
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+epochs_range = range(len(acc))
+
+plt.figure(figsize=(8, 8))
+plt.subplot(1, 2, 1)
+plt.plot(epochs_range, acc, label='Training Accuracy')
+plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+plt.legend(loc='lower right')
+plt.title('Training and Validation Accuracy')
+
+plt.subplot(1, 2, 2)
+plt.plot(epochs_range, loss, label='Training Loss')
+plt.plot(epochs_range, val_loss, label='Validation Loss')
+plt.legend(loc='upper right')
+plt.title('Training and Validation Loss')
+plt.show()
+
+# Mendapatkan prediksi dari model pada data uji
+predictions = model.predict(test_ds)
+y_pred = np.argmax(predictions, axis=1)
+
+# Mendapatkan label sebenarnya dari data uji
+y_true = test_ds.classes
+
+# Membuat confusion matrix
+confusion = confusion_matrix(y_true, y_pred)
+
+# Menampilkan confusion matrix menggunakan matplotlib
+plt.figure(figsize=(8, 6))
+plt.imshow(confusion, cmap=plt.cm.Blues)
+plt.title('Confusion Matrix')
+plt.colorbar()
+
+num_classes = len(np.unique(y_true))
+tick_marks = np.arange(num_classes)
+plt.xticks(tick_marks, range(num_classes))
+plt.yticks(tick_marks, range(num_classes))
+
+plt.xlabel('Predicted')
+plt.ylabel('True')
+
+# Menambahkan angka di dalam kotak confusion matrix
+for i in range(num_classes):
+    for j in range(num_classes):
+        plt.text(j, i, confusion[i, j],
+                 horizontalalignment='center',
+                 color='white' if confusion[i, j] > (confusion.max() / 2) else 'black')
+
+plt.tight_layout()
+plt.show()
+
+# Menghitung F1 score
+f1 = f1_score(y_true, y_pred, average='weighted')
+print("\nF1 Score:", f1)
+
+# Mendapatkan prediksi dari model pada data uji
+predictions = model.predict(test_ds)
+y_pred = np.argmax(predictions, axis=1)
+
+# Mendapatkan gambar acak dan label dari data uji
+num_rows, num_cols = 2, 2
+plt.figure(figsize=(10, 10))
+
+for i in range(num_rows * num_cols):
+    plt.subplot(num_rows, num_cols, i + 1)
+    # Ambil gambar acak dari test_ds
+    rand_index = np.random.randint(len(test_ds))
+    image, label = test_ds[rand_index]
+
+    # Tampilkan gambar
+    plt.imshow(image[0])
+    plt.axis('off')
+
+    # Label actual dan predicted
+    true_label = np.argmax(label)  # Ambil label dari tensor dengan argmax
+    pred_label = y_pred[rand_index]
+
+    # Konversi label menjadi nama kelas
+    true_class = list(test_ds.class_indices.keys())[true_label]
+    pred_class = list(test_ds.class_indices.keys())[pred_label]
+
+    # Tambahkan label di atas gambar
+    plt.title(f'Actual: {true_class}\nPredicted: {pred_class}', fontsize=10)
+
+plt.tight_layout()
+plt.show()
+
+# Convert the model.
+converter = tf.lite.TFLiteConverter.from_keras_model(model)
+tflite_model = converter.convert()
+
+# Save the model.
+with open('model.tflite', 'wb') as f:
+  f.write(tflite_model)
