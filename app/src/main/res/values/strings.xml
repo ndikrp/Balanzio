@@ -33,4 +33,7 @@
     <string name="onboarding_titles_3">Mulai perjalananmu bersama Balanzio!</string>
     <string name="on_boarding3">Ayo masuk untuk menikmati perjalanan dietmu bersama balanzio !!!</string>
     <string name="save">Simpan</string>
+    <string name="title_riwayat">Riwayat</string>
+    <string name="tv_today">Hari ini</string>
+    <string name="title_list_food">Makanan hari ini</string>
 </resources>
