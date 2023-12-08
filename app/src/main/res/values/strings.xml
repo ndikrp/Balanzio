@@ -26,4 +26,7 @@
     <string name="menu_target">Target</string>
     <string name="text_search">Cari makanan...</string>
     <string name="title_rv_makanan">Makanan favorit kamu</string>
+    <string name="title_riwayat">Riwayat</string>
+    <string name="tv_today">Hari ini</string>
+    <string name="title_list_food">Makanan hari ini</string>
 </resources>

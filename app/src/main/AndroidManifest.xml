@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Balanzio"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.splash.SplashscreenActivity"
             android:exported="true">
             <intent-filter>
@@ -22,7 +25,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ui.auth.signup.RegisterActivity"
@@ -33,11 +35,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 
