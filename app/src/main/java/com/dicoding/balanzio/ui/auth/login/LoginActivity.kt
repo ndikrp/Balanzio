@@ -42,6 +42,19 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
+    }
+
     private fun setupAction() {
         binding.loginButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
@@ -51,9 +64,11 @@ class LoginActivity : AppCompatActivity() {
                 put(PASSWORD, pass)
 
             }
+
             val jsonObjectString = jsonObject.toString()
             val requestBody =
                 jsonObjectString.toRequestBody("application/json;charset=utf-8".toMediaTypeOrNull())
+
             if (email.isEmpty()) {
                 binding.emailEditText.error = "Email tidak boleh kosong"
                 return@setOnClickListener
@@ -72,8 +87,7 @@ class LoginActivity : AppCompatActivity() {
                                 create()
                                 show()
                             }
-                            val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
+                            startActivity(Intent(this, MainActivity::class.java))
                         }
                         is Result.Error -> {
                             showToast(result.error)
@@ -87,19 +101,6 @@ class LoginActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun setupView() {
-        @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
-        }
-        supportActionBar?.hide()
     }
 
     private fun goToRegister() {

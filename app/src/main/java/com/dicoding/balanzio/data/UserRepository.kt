@@ -1,14 +1,21 @@
 package com.dicoding.balanzio.data
 
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import com.dicoding.balanzio.MainActivity
 import com.dicoding.balanzio.data.pref.UserModel
 import com.dicoding.balanzio.data.pref.UserPreference
 import com.dicoding.balanzio.data.response.ErrorStoryResponse
 import com.dicoding.balanzio.data.response.Login
 import com.dicoding.balanzio.data.response.Register
 import com.dicoding.balanzio.remote.ApiService
+import com.dicoding.balanzio.ui.auth.login.LoginActivity
+import com.dicoding.balanzio.ui.auth.signup.RegisterActivity
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import okhttp3.RequestBody
@@ -44,14 +51,14 @@ class UserRepository private constructor(
             val jsonInString = e.response()?.errorBody()?.string()
             val errorBody = Gson().fromJson(jsonInString, ErrorStoryResponse::class.java)
             val errorMessage = errorBody?.message ?: "An error occurred"
-            emit(Result.Error("Registration failed: $errorMessage"))
-        } catch (e: IOException) {
-            // Handle network-related issues
-            emit(Result.Error("Network Issues: ${e.message}"))
-        } catch (e: Exception) {
-            // Log or print the actual exception message for further investigation
-            emit(Result.Error("Unexpected Error: ${e.message}"))
-        }
+            emit(Result.Error("Registration failed: $errorMessage")) }
+//        catch (e: IOException) {
+//            // Handle network-related issues
+//            emit(Result.Error("Network Issues: ${e.message}"))
+//        } catch (e: Exception) {
+//            // Log or print the actual exception message for further investigation
+//            emit(Result.Error("Unexpected Error: ${e.message}"))
+//        }
     }
 
     fun userLogin(requestBody: RequestBody): LiveData<Result<Login>> = liveData {
@@ -67,10 +74,10 @@ class UserRepository private constructor(
             val jsonInString = e.response()?.errorBody()?.string()
             val errorBody = Gson().fromJson(jsonInString, ErrorStoryResponse::class.java)
             val errorMessage = errorBody?.message ?: "An error occurred"
-            emit(Result.Error("Login failed: $errorMessage"))
-        } catch (e: Exception) {
-            emit(Result.Error("Internet Issues"))
-        }
+            emit(Result.Error("Login failed: $errorMessage")) }
+//        catch (e: Exception) {
+//            emit(Result.Error("Internet Issues"))
+//        }
     }
 
 

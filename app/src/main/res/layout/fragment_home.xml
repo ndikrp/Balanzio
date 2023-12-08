@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -80,16 +79,14 @@
                     android:id="@+id/tv_hai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:text="Hai,"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
                     android:textColor="@color/white"
+                    android:textSize="25dp"
                     app:layout_constraintBottom_toBottomOf="@+id/bg_profile"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.167"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/bg_profile"
-                    app:layout_constraintVertical_bias="0.371" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.3" />
 
                 <TextView
                     android:id="@+id/tv_name_profile_at_home"
@@ -97,14 +94,10 @@
                     android:layout_height="wrap_content"
                     android:text="Andhika"
                     android:textColor="@color/white"
-                    android:textSize="20dp"
+                    android:textSize="30dp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.189"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.655" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_hai"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_hai" />
 
                 <ImageView
                     android:id="@+id/placeholder_profile"
@@ -130,13 +123,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:src="@drawable/bg_search"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="16dp" />
 
                 <ImageView
                     android:id="@+id/ic_kalori_home"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="36dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="25dp"
                     android:src="@drawable/ic_kalori"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -144,26 +138,24 @@
 
                 <TextView
                     android:id="@+id/tv_capaian_kalori"
-                    android:layout_width="44dp"
-                    android:layout_height="29dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
                     android:text="664"
-                    android:textSize="25sp"
+                    android:textSize="40sp"
+                    android:textColor="@color/accentColor"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tv_target_kalori"
-                    app:layout_constraintHorizontal_bias="0.8"
-                    app:layout_constraintStart_toEndOf="@+id/ic_kalori_home"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.477" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_target_kalori"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="88dp"
+                    android:layout_marginEnd="30dp"
                     android:text="/ 2.250"
-                    android:textColor="@color/accentColor"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
+                    android:textColor="@color/textColor"
+                    android:textSize="40sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -174,24 +166,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="Total kalori harianmu"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_target_kalori"
                     app:layout_constraintHorizontal_bias="0.711"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_capaian_kalori"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_satuan_kalori"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="kalori"
+                    android:layout_marginTop="32dp"
+                    android:text="Kalori"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.123"
-                    app:layout_constraintStart_toEndOf="@+id/tv_target_kalori"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.52" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_target_kalori"
+                    app:layout_constraintStart_toStartOf="@+id/tv_capaian_kalori"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title_bar_kalori" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

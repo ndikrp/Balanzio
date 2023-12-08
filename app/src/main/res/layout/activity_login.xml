@@ -132,11 +132,11 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
 
 
-    <com.google.android.material.button.MaterialButton
+    <TextView
         android:id="@+id/tv_klik_daftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="102dp"
         android:backgroundTint="@color/white"
         android:onClick="goToRegister"
@@ -146,7 +146,6 @@
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toEndOf="@+id/tv_pertanyaan1"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
     <TextView
@@ -161,14 +160,13 @@
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="64dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_end="530dp"
+        app:layout_constraintGuide_end="491dp"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline

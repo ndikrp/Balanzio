@@ -9,5 +9,15 @@
     <color name="backgroundColor">#F5F5F5</color> <!-- Contoh warna latar belakang abu-abu muda -->
     <color name="textColor">#333333</color> <!-- Contoh warna teks gelap -->
 
+    <color name="onBoardGradient">#92DED2</color>
+
+    <color name="hijauMudaDisable">#B7ECE4</color>
+
+    <color name="blue">#112A40</color>
+
+
+
+
+
 
 </resources>

@@ -26,8 +26,11 @@
     <string name="menu_target">Target</string>
     <string name="text_search">Cari makanan...</string>
     <string name="title_rv_makanan">Makanan favorit kamu</string>
-    <string name="title_riwayat">Riwayat</string>
-    <string name="tv_today">Hari ini</string>
-    <string name="title_list_food">Makanan hari ini</string>
+    <string name="on_boarding1">Balanzio adalah sebuah aplikasi diet yang dirancang untuk membantu pengguna mengelola pola makan mereka dengan mudah dan efektif.</string>
+    <string name="onboarding_titles_1">Apa itu Balanzio?</string>
+    <string name="onboarding_titles_2">Mengapa harus Balanzio?</string>
+    <string name="on_boarding2">Karena di Balanzio, kamu dapat mengidentifikasi makanan dengan cepat menggunakan fitur “Scan”. Kamu juga dapat mengatur tujuan kalori harianmu sesuai dengan kebutuhan. Selain itu kamu juga dapat mencari resep makanan yang kamu inginkan.</string>
+    <string name="onboarding_titles_3">Mulai perjalananmu bersama Balanzio!</string>
+    <string name="on_boarding3">Ayo masuk untuk menikmati perjalanan dietmu bersama balanzio !!!</string>
     <string name="save">Simpan</string>
 </resources>
