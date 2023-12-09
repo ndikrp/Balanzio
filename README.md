@@ -1,6 +1,5 @@
 # Balanzio_Cloud Computing
 ![Balanzio](https://github.com/ndikrp/Balanzio/blob/2fbd99f001acf4ae1090a2943bb85a5d47ceec78/assets/balanzio-datar.png)
-![Balanzio](https://github.com/ndikrp/Balanzio/blob/86c7fb7c0587ba13513990d1ac25244d504e7407/assets/balanzio-logo.png)
 
 Hello guys!! this is backend from application Balanzio
 
