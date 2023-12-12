@@ -22,15 +22,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <EditText
+                <SearchView
                     android:id="@+id/editText_Search"
-                    android:layout_width="260dp"
+                    android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:background="@drawable/bg_search"
                     android:drawableEnd="@drawable/ic_search"
                     android:ems="10"
-                    android:hint="@string/text_search"
-                    android:inputType="text"
+                    android:iconifiedByDefault="false"
+                    android:queryHint="Cari makanan..."
+                    android:searchIcon="@null"
                     android:paddingStart="15dp"
                     android:paddingEnd="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -44,18 +45,7 @@
                     android:src="@drawable/ic_favorite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/editText_Search"
-                    app:layout_constraintHorizontal_bias="0.69"
                     app:layout_constraintStart_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/bt_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_setting"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/bt_favorite"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
