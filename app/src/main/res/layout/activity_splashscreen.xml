@@ -13,8 +13,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:src="@drawable/balanzio_text_datar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/logo_splash"
+        app:layout_constraintStart_toStartOf="@+id/logo_splash"
         app:layout_constraintTop_toBottomOf="@+id/logo_splash" />
     <ImageView
         android:id="@+id/logo_splash"
