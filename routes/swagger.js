@@ -317,6 +317,62 @@
  * @swagger
  * tags:
  *   name: Foods
+ *   description: API for managing food data
+ * /foods/{time_category}:
+ *   get:
+ *     summary: Get all foods by time category
+ *     tags: [Foods]
+ *     responses:
+ *       200:
+ *         description: List of foods by time category
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   description: The status of the response
+ *                 food:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       foodId:
+ *                         type: integer
+ *                         description: The ID of the food
+ *                       name:
+ *                         type: string
+ *                         description: The name of the food
+ *                       time category:
+ *                         type: string
+ *                         description: The name of the time category
+ *                       calorie:
+ *                         type: number
+ *                         description: The calorie content of the food
+ *                       protein:
+ *                         type: number
+ *                         description: The protein content of the food
+ *                       fat:
+ *                         type: number
+ *                         description: The fat content of the food
+ *                       carbo:
+ *                         type: number
+ *                         description: The carbohydrate content of the food
+ *                       water:
+ *                         type: number
+ *                         description: The water content of the food
+ *                       imageUrl:
+ *                         type: string
+ *                         description: URL of the food image
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Foods
  *   description: API for managing user food scan history
  * /scan-food/{userId}:
  *   post:
