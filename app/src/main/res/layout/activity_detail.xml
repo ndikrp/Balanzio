@@ -58,13 +58,14 @@
 
                 <ImageView
                     android:id="@+id/img_food_detail"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="180dp"
                     android:src="@drawable/dummy_food"
+                    android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,22 +80,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="18dp"
-                    tools:text="Nasi Goreng"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.501"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.135" />
+                    app:layout_constraintVertical_bias="0.135"
+                    tools:text="Nasi Goreng" />
 
                 <TextView
                     android:id="@+id/tv_informasi_kalori_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Informasi Kalori"
+                    android:text="@string/informasi_kalori"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -107,9 +108,9 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:textSize="14sp"
-                    tools:text="25 kalori per sajian"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_informasi_kalori_detail" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_informasi_kalori_detail"
+                    tools:text="25 kalori per sajian" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -123,7 +124,7 @@
                     android:id="@+id/tv_rincian_nutrisi_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Rincian Nutrisi"
+                    android:text="@string/rincian_nutrisi"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -132,9 +133,10 @@
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingStart="5dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="0dp"
                     app:layout_constraintTop_toBottomOf="@+id/tv_rincian_nutrisi_detail"
                     tools:layout_editor_absoluteX="18dp">
 
@@ -147,7 +149,7 @@
                             android:id="@+id/tv_kalori_detail"
                             android:layout_width="116dp"
                             android:layout_height="wrap_content"
-                            android:text="Kalori"
+                            android:text="@string/kalori_detail"
                             android:textSize="14sp" />
 
                         <TextView
@@ -155,8 +157,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            tools:text="1026 kkal"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            tools:text="1026 kkal" />
                     </TableRow>
 
                     <TableRow
@@ -168,7 +170,7 @@
                             android:id="@+id/tv_karbo_detail"
                             android:layout_width="116dp"
                             android:layout_height="wrap_content"
-                            android:text="Karbohidrat"
+                            android:text="@string/karbohidrat_detail"
                             android:textSize="14sp" />
 
                         <TextView
@@ -176,8 +178,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            tools:text="104 gram"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            tools:text="104 gram" />
                     </TableRow>
 
                     <TableRow
@@ -189,7 +191,7 @@
                             android:id="@+id/tv_protein_detail"
                             android:layout_width="116dp"
                             android:layout_height="wrap_content"
-                            android:text="Protein"
+                            android:text="@string/protein_detail"
                             android:textSize="14sp" />
 
                         <TextView
@@ -197,8 +199,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            tools:text="56 gram"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            tools:text="56 gram" />
                     </TableRow>
 
                     <TableRow
@@ -210,7 +212,7 @@
                             android:id="@+id/tv_lemak_detail"
                             android:layout_width="116dp"
                             android:layout_height="wrap_content"
-                            android:text="Lemak"
+                            android:text="@string/lemak_detail"
                             android:textSize="14sp" />
 
                         <TextView
@@ -218,10 +220,28 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            tools:text="39 gram"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            tools:text="39 gram" />
                     </TableRow>
                 </TableLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="18dp">
+
+                <TextView
+                    android:id="@+id/tv_rincian_nutrisi_detail3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/resep_detail"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

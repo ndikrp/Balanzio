@@ -36,4 +36,11 @@
     <string name="title_riwayat">Riwayat</string>
     <string name="tv_today">Hari ini</string>
     <string name="title_list_food">Makanan hari ini</string>
+    <string name="informasi_kalori">Informasi Kalori</string>
+    <string name="rincian_nutrisi">Rincian Nutrisi</string>
+    <string name="kalori_detail">Kalori</string>
+    <string name="karbohidrat_detail">Karbohidrat</string>
+    <string name="protein_detail">Protein</string>
+    <string name="lemak_detail">Lemak</string>
+    <string name="resep_detail">Resep</string>
 </resources>
