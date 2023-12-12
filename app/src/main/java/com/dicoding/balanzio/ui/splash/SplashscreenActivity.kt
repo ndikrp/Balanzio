@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.balanzio.databinding.ActivitySplashscreenBinding
 import com.dicoding.balanzio.ui.auth.login.LoginActivity
+import com.dicoding.balanzio.ui.onboarding.OnBoarding1Activity
 
 class SplashscreenActivity : AppCompatActivity() {
 
@@ -21,7 +22,7 @@ class SplashscreenActivity : AppCompatActivity() {
         playAnimation()
 
         binding.root.postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, OnBoarding1Activity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_TIME_OUT)

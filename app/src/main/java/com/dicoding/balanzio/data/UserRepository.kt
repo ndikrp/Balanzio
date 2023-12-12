@@ -65,11 +65,7 @@ class UserRepository private constructor(
         emit(Result.Loading)
         try {
             val response = apiService.login(requestBody)
-            if (response.error == false) {
-                emit(Result.Success(response))
-            } else {
-                emit(Result.Error(response.message ?: "An error occurred"))
-            }
+            emit(Result.Success(response))
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()
             val errorBody = Gson().fromJson(jsonInString, ErrorStoryResponse::class.java)

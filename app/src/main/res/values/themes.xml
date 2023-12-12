@@ -20,4 +20,8 @@
         <item name="android:background">@drawable/onboarding_desc_bg</item>
         <item name="android:layout_alignParentBottom">true</item>
     </style>
+
+    <style name="MyChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/white</item>
+    </style>
 </resources>

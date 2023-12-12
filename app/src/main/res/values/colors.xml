@@ -7,7 +7,7 @@
     <color name="accentColor">#0EB59B</color>
 
     <color name="backgroundColor">#F5F5F5</color> <!-- Contoh warna latar belakang abu-abu muda -->
-    <color name="textColor">#333333</color> <!-- Contoh warna teks gelap -->
+    <color name="textColor">#494949</color> <!-- Contoh warna teks gelap -->
 
     <color name="onBoardGradient">#92DED2</color>
 

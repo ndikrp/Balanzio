@@ -19,6 +19,7 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import com.dicoding.balanzio.data.Result
+import com.dicoding.balanzio.ui.activity.ProfileActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -40,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
         tvKlikDaftar.setOnClickListener {
             goToRegister()
         }
+
     }
 
     private fun setupView() {
@@ -81,13 +83,10 @@ class LoginActivity : AppCompatActivity() {
                 viewModel.login(requestBody).observe(this) { result ->
                     when (result) {
                         is Result.Success -> {
-                            AlertDialog.Builder(this).apply {
-                                setTitle("Login Success")
-                                setMessage("Selamat Datang!")
-                                create()
-                                show()
-                            }
-                            startActivity(Intent(this, MainActivity::class.java))
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            finish()
+                            startActivity(intent)
                         }
                         is Result.Error -> {
                             showToast(result.error)
@@ -107,6 +106,8 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
+
+
 
     companion object {
         private const val EMAIL = "email"

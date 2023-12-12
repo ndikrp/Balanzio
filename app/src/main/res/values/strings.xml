@@ -44,4 +44,5 @@
     <string name="lemak_detail">Lemak</string>
     <string name="resep_detail">Resep</string>
     <string name="text_karbo">Karbo</string>
+    <string name="masuk_on_boarding">Masuk</string>
 </resources>
