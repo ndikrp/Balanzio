@@ -1,7 +1,7 @@
 # Balanzio_Cloud Computing
 ![Balanzio](https://github.com/ndikrp/Balanzio/blob/2fbd99f001acf4ae1090a2943bb85a5d47ceec78/assets/balanzio-datar.png)
 
-Hello guys!! this is Cloud Computing Tean from application Balanzio
+Hello guys!! this is Cloud Computing Team from application Balanzio
 
 # Balanzio-Cloud Computing
 Hello, this is backend Balanzio application made by Capstone Team CH2-PS340
