@@ -67,6 +67,26 @@ router.post('/recipe/:userId', (req, res) => {
   });
 });
 
+router.get('/recipes/:recipe_id', (req, res) => {
+  const recipe_id = req.params.recipe_id;
+
+  const selectRecipesSql = 'SELECT * FROM recipes WHERE recipe_id = ?';
+
+  pool.query(selectRecipesSql, [recipe_id], (error, results) => {
+    if (error) {
+      console.error('Error querying recipe:', error);
+      return res.status(500).json({ error: 'Error querying recipe' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: 'Recipe not found' });
+    }
+
+    const recipe = results[0];
+    res.json({ status: 'Success', recipe });
+  });
+});
+
 router.get('/recipe/favorites/:userId', (req, res) => {
   const userId = req.params.userId;
 
