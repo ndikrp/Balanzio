@@ -1,5 +1,5 @@
 # Balanzio Product Capstone Project
-![Balanzio](https://github.com/ndikrp/Balanzio/blob/2fbd99f001acf4ae1090a2943bb85a5d47ceec78/assets/balanzio-datar.png)
+![Balanzio](https://github.com/ndikrp/Balanzio/blob/6bf7f948aeaf3fd5dd118eccfea8398cc1852813/assets/Balanzio_WhiteBG.png)
 
 Hello guys!! this is CH2-PS340 Team from application Balanzio
 
