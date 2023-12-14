@@ -16,7 +16,7 @@ Hello, this is Balanzio Mobile Development Team CH2-PS340
 
 |  Name | Bangkit ID | Contacts |
 | ------------ | ------------ | ------------ |
-| Your Name	 | Bangkit ID | [Github](link) & [Linkedin](link)|
+| M Faiq Al Abiyyi | A296BSY2126 | [Github](link) & [Linkedin](link)|
 | Your Name	 | Bangkit ID	| [Github](link) & [Linkedin](link) |
 
 # Balanzio-Cloud Computing
