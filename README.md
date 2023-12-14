@@ -5,7 +5,6 @@ Hello guys!! this is CH2-PS340 Team from application Balanzio
 
 # Balanzio Machine Learning 
 Hello, this is Balanzio Machine Learning Team CH2-PS340
-# Mobile Development Team
 
 |  Name | Bangkit ID | Contacts |
 | ------------ | ------------ | ------------ |
@@ -14,7 +13,6 @@ Hello, this is Balanzio Machine Learning Team CH2-PS340
 
 # Balanzio Mobile Development
 Hello, this is Balanzio Mobile Development Team CH2-PS340
-# Mobile Development Team
 
 |  Name | Bangkit ID | Contacts |
 | ------------ | ------------ | ------------ |
@@ -23,7 +21,6 @@ Hello, this is Balanzio Mobile Development Team CH2-PS340
 
 # Balanzio-Cloud Computing
 Hello, this is Balanzio Cloud Computing Team CH2-PS340!
-# Cloud Computing Team
 
 |  Name | Bangkit ID | Contacts |
 | ------------ | ------------ | ------------ |
