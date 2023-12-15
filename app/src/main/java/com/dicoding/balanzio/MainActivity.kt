@@ -2,18 +2,15 @@ package com.dicoding.balanzio
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.dicoding.balanzio.databinding.ActivityLoginBinding
 import com.dicoding.balanzio.databinding.ActivityMainBinding
-import com.dicoding.balanzio.ui.activity.ProfileActivity
 import com.dicoding.balanzio.ui.fragment.GoalsFragment
 import com.dicoding.balanzio.ui.fragment.HistoryFragment
 import com.dicoding.balanzio.ui.fragment.HomeFragment
 import com.dicoding.balanzio.ui.fragment.ResepFragment
-import com.dicoding.balanzio.ui.splash.SplashscreenActivity
+import com.dicoding.balanzio.ui.scan.CameraActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,6 +45,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             true
+        }
+
+        binding.fabScan.setOnClickListener {
+            val intent = Intent(this, CameraActivity::class.java)
+            startActivity(intent)
         }
     }
 

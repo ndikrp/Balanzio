@@ -45,4 +45,5 @@
     <string name="resep_detail">Resep</string>
     <string name="text_karbo">Karbo</string>
     <string name="masuk_on_boarding">Masuk</string>
+    <string name="text_important">*Dekatkan kamera ke makanan untuk\nhasil yang maksimal</string>
 </resources>
