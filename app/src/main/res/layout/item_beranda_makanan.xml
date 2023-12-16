@@ -5,7 +5,8 @@
     android:layout_width="175dp"
     android:layout_height="240dp"
     android:elevation="3dp"
-    android:layout_margin="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
     app:cardCornerRadius="20dp">
 
 

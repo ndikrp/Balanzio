@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -23,8 +22,8 @@
                 <ImageView
                     android:id="@+id/bg_header_story"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:src="@drawable/bg_header_history"
+                    android:layout_height="170dp"
+                    android:src="@drawable/bg_resep_riwayat"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/title_riwayat"
                     android:textColor="@color/white"
-                    android:textSize="30sp"
+                    android:textSize="44sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/bg_header_story"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -45,51 +44,29 @@
                     app:layout_constraintVertical_bias="0.306" />
 
                 <ImageView
-                    android:id="@+id/arrow_back_riwayat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:src="@drawable/ic_arrow_back"
-                    app:layout_constraintBottom_toBottomOf="@+id/bg_header_story"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.875" />
-
-                <ImageView
-                    android:id="@+id/arrow_forward_riwayat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_arrow_forward"
-                    app:layout_constraintBottom_toBottomOf="@+id/bg_header_story"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.875" />
-
-                <ImageView
                     android:id="@+id/ic_calender_riwayat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
                     android:src="@drawable/ic_calender"
                     app:layout_constraintBottom_toBottomOf="@+id/bg_header_story"
-                    app:layout_constraintEnd_toStartOf="@+id/arrow_forward_riwayat"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.814"
+                    app:layout_constraintStart_toEndOf="@+id/tv_hariini_riwayat"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.875" />
+                    app:layout_constraintVertical_bias="0.882" />
 
                 <TextView
                     android:id="@+id/tv_hariini_riwayat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:text="@string/tv_today"
+                    android:text="@string/tv_tanggal"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/bg_header_story"
-                    app:layout_constraintEnd_toStartOf="@+id/ic_calender_riwayat"
-                    app:layout_constraintHorizontal_bias="0.573"
-                    app:layout_constraintStart_toEndOf="@+id/arrow_back_riwayat"
+                    app:layout_constraintEnd_toEndOf="@+id/title_riwayat"
+                    app:layout_constraintStart_toStartOf="@+id/title_riwayat"
                     app:layout_constraintTop_toBottomOf="@+id/title_riwayat"
                     app:layout_constraintVertical_bias="0.933" />
 
@@ -105,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="@string/title_list_food"
+                    android:text="@string/title_list_food_riwayat"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"

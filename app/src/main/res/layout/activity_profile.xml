@@ -10,12 +10,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-52dp"
-        tools:layout_editor_absoluteY="69dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="18dp"
             android:orientation="vertical">
 
@@ -95,11 +97,11 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/nameEditTextLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    app:boxStrokeColor="@color/accentColor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="14dp"
                     android:layout_marginEnd="14dp"
+                    app:boxStrokeColor="@color/accentColor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_name_profile">
@@ -111,71 +113,6 @@
                         android:ems="10"
                         android:inputType="text"
                         tools:ignore="SpeakableTextPresentCheck" />
-                </com.google.android.material.textfield.TextInputLayout>            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/tv_BB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/label_BB"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="MissingConstraints" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tl_BB"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    app:boxStrokeColor="@color/accentColor"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_BB">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/bb_EditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="number"
-                        tools:ignore="SpeakableTextPresentCheck" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/tv_TB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/label_TB"
-                    android:textColor="@color/black"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.699"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="MissingConstraints" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tl_TB"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="14dp"
-                    app:boxStrokeColor="@color/accentColor"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_TB">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tb_EditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="number"
-                        tools:ignore="SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -183,66 +120,195 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tv_JenisKelamin"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="14dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/label_JenisKelamin"
-                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_JenisKelamin"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    app:boxStrokeColor="@color/accentColor"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_JenisKelamin">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/jenisKelamin_EditText"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tv_BB"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="text"
-                        tools:ignore="SpeakableTextPresentCheck" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:text="@string/label_BB"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints" />
 
-                <TextView
-                    android:id="@+id/tv_Umur"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tl_BB"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        app:boxStrokeColor="@color/accentColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_BB">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/bb_EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="number"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="Kg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/tl_BB"
+                        app:layout_constraintTop_toTopOf="@+id/tl_BB" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/label_Umur"
-                    android:textColor="@color/black"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.61"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="MissingConstraints" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Umur"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginEnd="14dp"
-                    app:boxStrokeColor="@color/accentColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_Umur">
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/umur_EditText"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tv_TB"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="number"
-                        tools:ignore="SpeakableTextPresentCheck" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:text="@string/label_TB"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@+id/tl_TB"
+                        tools:ignore="MissingConstraints" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tl_TB"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        app:boxStrokeColor="@color/accentColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_TB">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tb_EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="number"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="Cm"
+                        app:layout_constraintBottom_toBottomOf="@+id/tl_TB"
+                        app:layout_constraintEnd_toEndOf="@+id/tl_TB"
+                        app:layout_constraintTop_toTopOf="@+id/tl_TB" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="14dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_JenisKelamin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_JenisKelamin"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@+id/textInputLayout_JenisKelamin"
+                        tools:ignore="MissingConstraints" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout_JenisKelamin"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        app:boxStrokeColor="@color/accentColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_JenisKelamin">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/jenisKelamin_EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="text" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="14dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_Umur"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_Umur"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="@+id/textInputLayout_Umur"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteY="1dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout_Umur"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        app:boxStrokeColor="@color/accentColor"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.937"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_Umur">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/umur_EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="number"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="Tahun"
+                        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout_Umur"
+                        app:layout_constraintEnd_toEndOf="@+id/textInputLayout_Umur"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayout_Umur" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

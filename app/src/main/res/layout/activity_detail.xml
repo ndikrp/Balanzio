@@ -89,11 +89,11 @@
                     tools:text="Nasi Goreng" />
 
                 <TextView
-                    android:id="@+id/tv_informasi_kalori_detail"
+                    android:id="@+id/tv_point1_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@string/informasi_kalori"
+                    android:text="@string/point1_detail"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -107,8 +107,8 @@
                     android:layout_marginTop="8dp"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_informasi_kalori_detail"
-                    tools:text="25 kalori per sajian" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_point1_detail"
+                    tools:text="Sarapan" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -119,10 +119,10 @@
                 android:layout_marginEnd="18dp">
 
                 <TextView
-                    android:id="@+id/tv_rincian_nutrisi_detail"
+                    android:id="@+id/tv_point2_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/rincian_nutrisi"
+                    android:text="@string/point2_detail"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -135,7 +135,7 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="0dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_rincian_nutrisi_detail">
+                    app:layout_constraintTop_toBottomOf="@+id/tv_point2_detail">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -225,20 +225,57 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
                 android:layout_marginTop="18dp">
 
                 <TextView
-                    android:id="@+id/tv_rincian_nutrisi_detail3"
+                    android:id="@+id/tv_point3_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/resep_detail"
+                    android:text="@string/point3_detail"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_bahan_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_point3_detail"
+                    tools:text="@string/dummy_bahan_detail" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="18dp">
+
+                <TextView
+                    android:id="@+id/tv_point4_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/point4_detail"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_carabuat_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_point4_detail"
+                    tools:text="@string/dummy_pembuatan_detail" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

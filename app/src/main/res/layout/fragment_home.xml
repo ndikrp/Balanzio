@@ -20,23 +20,25 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp">
 
                 <SearchView
                     android:id="@+id/editText_Search"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/bg_search"
                     android:drawableEnd="@drawable/ic_search"
                     android:ems="10"
                     android:iconifiedByDefault="false"
+                    android:paddingEnd="15dp"
                     android:queryHint="Cari makanan..."
                     android:searchIcon="@null"
-                    android:paddingStart="15dp"
-                    android:paddingEnd="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    app:layout_constraintEnd_toStartOf="@+id/bt_favorite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/bt_favorite"
@@ -44,9 +46,9 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_favorite"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/editText_Search"
-                    app:layout_constraintStart_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/editText_Search"
+                    app:layout_constraintTop_toTopOf="@+id/editText_Search" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -114,13 +116,13 @@
                     android:layout_height="140dp"
                     android:src="@drawable/bg_search"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="16dp" />
+                    tools:layout_editor_absoluteX="0dp" />
 
                 <ImageView
                     android:id="@+id/ic_kalori_home"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="16dp"
                     android:src="@drawable/ic_kalori"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -132,18 +134,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:text="664"
-                    android:textSize="40sp"
                     android:textColor="@color/accentColor"
+                    android:textSize="40sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tv_target_kalori"
+                    app:layout_constraintStart_toEndOf="@+id/ic_kalori_home"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_target_kalori"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="30dp"
-                    android:text="/ 2.250"
+                    android:layout_marginEnd="16dp"
+                    android:text="| 2250"
                     android:textColor="@color/textColor"
                     android:textSize="40sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -192,15 +195,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     tools:ignore="MissingConstraints" />
 
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_makanan_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-                    tools:listitem="@layout/food_item_home"/>
 
                 <HorizontalScrollView
                     android:id="@+id/horizontalScrollView"
@@ -260,6 +254,15 @@
 
                     </com.google.android.material.chip.ChipGroup>
                 </HorizontalScrollView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_makanan_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+                    tools:listitem="@layout/item_beranda_makanan" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
