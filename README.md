@@ -8,8 +8,9 @@ Hello, this is Balanzio Machine Learning Team CH2-PS340
 
 |  Name | Bangkit ID | Contacts |
 | ------------ | ------------ | ------------ |
-| Your Name	 | Bangkit ID | [Github](link) & [Linkedin](link)|
-| Your Name	 | Bangkit ID	| [Github](link) & [Linkedin](link) |
+| Maria Alberta Putri Kurniawaty	 | M284BSX1461 | [Github](https://github.com/marialbe) & [Linkedin](https://www.linkedin.com/in/maria-alberta/)|
+| Juan Krisfigo Prasetyo	 | M180BSY1017 | [Github](https://github.com/Juankris) & [Linkedin](https://www.linkedin.com/in/juan-krisfigo-93a823263/)|
+| Inggi Maulani	 | M267BSX1516	| [Github](https://github.com/InggiMaulani11) & [Linkedin](https://www.linkedin.com/in/inggi-maulani/) |
 
 # Balanzio Mobile Development
 Hello, this is Balanzio Mobile Development Team CH2-PS340
