@@ -1,2 +1,8 @@
 runtime: nodejs16
 service: default
+env_variables:
+  DB_HOST: "your public ip"
+  DB_USER: "your user name"
+  DB_PASSWORD: "your password"
+  DB_DATABASE: "your database name"
+  JWT_SECRET: "your token secret"

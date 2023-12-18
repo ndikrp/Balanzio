@@ -3,6 +3,7 @@ module.exports = {
   checkEmail: 'SELECT * FROM users WHERE email = ?',
   insertUser: 'INSERT INTO users (name, weight, height, gender, age, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)',
   getUserByEmail: 'SELECT * FROM users WHERE email = ?',
+  selectUserSql: 'SELECT name, weight, height, gender, age, email, password FROM users WHERE userId = ?',
   updateUser: 'UPDATE users SET %s WHERE userId = ?',
   insertFood: 'INSERT INTO history (foodId, userId, date) VALUES (?, ?, NOW())',
 

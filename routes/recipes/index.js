@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../../config/database.js');
+const sqlQueries = require('../../utils/sqlQueries.js');
+
+
 
 //-----------------------------------/list--------------------------------//
 
 router.get('/list', (req, res) => {
-  const selectRecipesSql = 'SELECT * FROM recipes';
+  const selectRecipesSql = sqlQueries.selectRecipes;
 
   pool.query(selectRecipesSql, (error, results) => {
     if (error) {
@@ -27,7 +30,7 @@ router.post('/recipe/:userId', (req, res) => {
     return res.status(400).json({ error: 'Recipe ID is required' });
   }
 
-  const checkDuplicateQuery = 'SELECT * FROM favorites WHERE userId = ? AND recipe_id = ?';
+  const checkDuplicateQuery = sqlQueries.checkDuplicate;
   pool.query(checkDuplicateQuery, [userId, recipe_id], (duplicateErr, duplicateResults) => {
     if (duplicateErr) {
       console.error('Error checking for duplicate:', duplicateErr);
@@ -38,7 +41,7 @@ router.post('/recipe/:userId', (req, res) => {
       return res.status(400).json({ error: 'Recipe is already a favorite for this user.' });
     }
 
-    const getFoodNameQuery = 'SELECT name FROM recipes WHERE recipe_id = ?';
+    const getFoodNameQuery = sqlQueries.getFoodName;
 
     pool.query(getFoodNameQuery, [recipe_id], (err, results) => {
       if (err) {
@@ -52,7 +55,7 @@ router.post('/recipe/:userId', (req, res) => {
 
       const food_name = results[0].name;
 
-      const addFavoriteQuery = 'INSERT INTO favorites (userId, recipe_id, food_name, add_at) VALUES (?, ?, ?, CURDATE())';
+      const addFavoriteQuery = sqlQueries.addFavorite;
       const values = [userId, recipe_id, food_name];
 
       pool.query(addFavoriteQuery, values, (addErr, result) => {
@@ -67,30 +70,10 @@ router.post('/recipe/:userId', (req, res) => {
   });
 });
 
-router.get('/recipes/:recipe_id', (req, res) => {
-  const recipe_id = req.params.recipe_id;
-
-  const selectRecipesSql = 'SELECT * FROM recipes WHERE recipe_id = ?';
-
-  pool.query(selectRecipesSql, [recipe_id], (error, results) => {
-    if (error) {
-      console.error('Error querying recipe:', error);
-      return res.status(500).json({ error: 'Error querying recipe' });
-    }
-
-    if (results.length === 0) {
-      return res.status(404).json({ error: 'Recipe not found' });
-    }
-
-    const recipe = results[0];
-    res.json({ status: 'Success', recipe });
-  });
-});
-
 router.get('/recipe/favorites/:userId', (req, res) => {
   const userId = req.params.userId;
 
-  const getFavoritesQuery = 'SELECT * FROM favorites WHERE userId = ?';
+  const getFavoritesQuery = sqlQueries.getFavorites;
 
   pool.query(getFavoritesQuery, [userId], (err, results) => {
     if (err) {
@@ -106,7 +89,7 @@ router.delete('/recipe/unfavorite/:userId/:recipeId', (req, res) => {
   const userId = req.params.userId;
   const recipeId = req.params.recipeId;
 
-  const unfavoriteQuery = 'DELETE FROM favorites WHERE userId = ? AND recipe_id = ?';
+  const unfavoriteQuery = sqlQueries.unfavorite;
 
   pool.query(unfavoriteQuery, [userId, recipeId], (err, deleteResults) => {
     if (err) {
@@ -114,7 +97,7 @@ router.delete('/recipe/unfavorite/:userId/:recipeId', (req, res) => {
       return res.status(500).json({ error: 'Error unfavoriting recipe.' });
     }
 
-    const getRecipeNameQuery = 'SELECT name FROM recipes WHERE recipe_id = ?';
+    const getRecipeNameQuery = sqlQueries.getRecipeName;
 
     pool.query(getRecipeNameQuery, [recipeId], (err, nameResults) => {
       if (err) {

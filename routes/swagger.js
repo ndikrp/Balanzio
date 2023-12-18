@@ -165,6 +165,79 @@
  *   name: User
  *   description: API for managing user data
  * /user/{userId}:
+ *   get:
+ *     summary: Get user data by ID
+ *     tags: [User]
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The ID of the user
+ *     responses:
+ *       200:
+ *         description: User data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   description: The status of the response
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     name:
+ *                       type: string
+ *                       description: The name of the user
+ *                     weight:
+ *                       type: number
+ *                       description: The weight of the user
+ *                     height:
+ *                       type: number
+ *                       description: The height of the user
+ *                     gender:
+ *                       type: string
+ *                       description: The gender of the user
+ *                     age:
+ *                       type: number
+ *                       description: The age of the user
+ *                     email:
+ *                       type: string
+ *                       description: The email of the user
+ *                     password:
+ *                       type: string
+ *                       description: The password of the user
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: The error message
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: The error message
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: User
+ *   description: API for managing user data
+ * /user/{userId}:
  *   put:
  *     summary: Update user data
  *     tags: [User]
@@ -317,69 +390,6 @@
  * @swagger
  * tags:
  *   name: Foods
- *   description: API for managing food data
- * /foods/{category}:
- *   get:
- *     summary: Get all foods by category
- *     tags: [Foods]
- *     parameters:
- *       - in: path
- *         name: category
- *         schema:
- *           type: string
- *         required: true
- *         description: The user Category
- *     responses:
- *       200:
- *         description: List of foods by time category
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   description: The status of the response
- *                 food:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       foodId:
- *                         type: integer
- *                         description: The ID of the food
- *                       name:
- *                         type: string
- *                         description: The name of the food
- *                       category:
- *                         type: string
- *                         description: The category of food
- *                       calorie:
- *                         type: number
- *                         description: The calorie content of the food
- *                       protein:
- *                         type: number
- *                         description: The protein content of the food
- *                       fat:
- *                         type: number
- *                         description: The fat content of the food
- *                       carbo:
- *                         type: number
- *                         description: The carbohydrate content of the food
- *                       water:
- *                         type: number
- *                         description: The water content of the food
- *                       imageUrl:
- *                         type: string
- *                         description: URL of the food image
- *       500:
- *         description: Internal server error
- */
-
-/**
- * @swagger
- * tags:
- *   name: Foods
  *   description: API for managing user food scan history
  * /scan-food/{userId}:
  *   post:
@@ -474,60 +484,6 @@
  *                       name:
  *                         type: string
  *                         description: The name of the recipe
- *                       ingredients:
- *                         type: string
- *                         description: The ingredients of the recipe
- *                       description:
- *                         type: string
- *                         description: The description of the recipe
- *                       imageUrl:
- *                         type: string
- *                         description: URL of the recipe image
- *       500:
- *         description: Internal server error
- */
-
-/**
- * @swagger
- * tags:
- *   name: Recipes
- *   description: API for managing recipe data
- * /recipes/{recipe_id}:
- *   get:
- *     summary: Get a list of recipes by recipe_id
- *     tags: [Recipes]
- *     parameters:
- *       - in: path
- *         name: recipe_id
- *         schema:
- *           type: integer
- *         required: true
- *         description: The Recipe Id
- *     responses:
- *       200:
- *         description: List of recipes by recipe_id
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 status:
- *                   type: string
- *                   description: The status of the response
- *                 recipes:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       recipe_id:
- *                         type: integer
- *                         description: The ID of the recipe
- *                       name:
- *                         type: string
- *                         description: The name of the recipe
- *                       category:
- *                         type: string
- *                         description: The category of food
  *                       ingredients:
  *                         type: string
  *                         description: The ingredients of the recipe
@@ -991,3 +947,4 @@
  *                   type: string
  *                   description: The error message
  */
+

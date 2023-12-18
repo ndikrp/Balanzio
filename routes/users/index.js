@@ -3,8 +3,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const pool = require('../../config/database.js');
+const sqlQueries = require('../../utils/sqlQueries.js');
+const { errorHandler } = require('../../utils/ErrorChecker.js');
 
-//-----------------------------------/insert--------------------------------//
+//-----------------------------------/register--------------------------------//
+
 
 router.post('/register', (req, res) => {
   const userData = req.body;
@@ -16,7 +19,7 @@ router.post('/register', (req, res) => {
     }
   }
 
-  const checkEmailSql = 'SELECT * FROM users WHERE email = ?';
+  const checkEmailSql = sqlQueries.checkEmail;
   pool.query(checkEmailSql, [userData.email], (checkError, checkResults) => {
     if (checkError) {
       console.error('Error checking email:', checkError);
@@ -34,7 +37,7 @@ router.post('/register', (req, res) => {
         return res.status(500).json({ error: 'Error hashing password' });
       }
 
-      const insertUserSql = 'INSERT INTO users (name, weight, height, gender, age, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)';
+      const insertUserSql = sqlQueries.insertUser;
       const values = [
         userData.name,
         userData.weight,
@@ -63,7 +66,8 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
 
-  pool.query('SELECT * FROM users WHERE email = ?', [email], (error, results) => {
+  const checkEmail = sqlQueries.getUserByEmail
+  pool.query(checkEmail, [email], (error, results) => {
     if (error) {
       console.error('Error querying user:', error);
       return res.status(500).json({ error: 'Error querying user' });
@@ -94,6 +98,26 @@ router.post('/login', (req, res) => {
 });
 
 //-----------------------------------/user--------------------------------//
+
+router.get('/user/:userId', (req, res) => {
+  const userId = req.params.userId;
+  const selectUser = sqlQueries.selectUserSql;
+  pool.query(selectUser, [userId], (error, results) => {
+      if (error) {
+          console.error('Error querying user data:', error);
+          return res.status(500).json({ error: 'Error querying user data' });
+      }
+
+      // Check if a user with the given userId exists
+      if (results.length === 0) {
+          return res.status(404).json({ error: 'User not found' });
+      }
+
+      const userData = results[0];
+      res.json({ status: 'Success', user: userData });
+  });
+});
+
 
 router.put('/user/:userId', (req, res) => {
   const userId = req.params.userId;
@@ -173,7 +197,7 @@ router.post('/scan-food/:userId', async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields for scan-food' });
     }
 
-    const insertFoodSql = 'INSERT INTO history (foodId, userId, date) VALUES (?, ?, NOW())';
+    const insertFoodSql = sqlQueries.insertFood
     const values = [foodId, userId];
 
     const queryResult = await pool.query(insertFoodSql, values);
