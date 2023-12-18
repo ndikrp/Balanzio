@@ -17,14 +17,14 @@ from sklearn.metrics import confusion_matrix, f1_score
   ```
 ## 2. Data Gathering
 - Load [dataset](https://drive.google.com/drive/folders/14UEZ12_-2ohkbi6r8T6aE0cLlHbhgeLP?usp=drive_link)
- ```
-train_dir = "/content/drive/MyDrive/Dataset/Train"
-val_dir = "/content/drive/MyDrive/Dataset/Valid"
-test_dir = "/content/drive/MyDrive/Dataset/Test"
+  ```
+  train_dir = "/content/drive/MyDrive/Dataset/Train"
+  val_dir = "/content/drive/MyDrive/Dataset/Valid"
+  test_dir = "/content/drive/MyDrive/Dataset/Test"
   ```
 ## 3. Data Prepocessing
 - Perform data augmentation for data train, valid, and test to add diversity to the dataset with the following details
-```
+  ```
   rescale=1./255.
   horizontal_flip = True
   rotation_range = 0.2
@@ -69,5 +69,18 @@ test_dir = "/content/drive/MyDrive/Dataset/Test"
   )
   ```
 ## 4. Training Model
+- Training using transfer learning method. Transfer learning is the reuse of knowledge from previously trained models to perform new tasks. The transfer learning model (pre-trained model) used is image feature extraction with MobileNetV2 architecture that has been trained on ImageNet.
+- This architecture was chosen because it can produce high accuracy and produce a tflite model with a small size, making it easy to deploy on Android.
+- Perform freeze layer technique on all layers on MobileNetV2. Then the transfer learning model is added with several layers to make the model accuracy more better
+   * Added ```Flatten()``` layer
+   * Added ```Dense(units=2048, activation='relu')``` layer
+   * Added ```Dense(units=2048, activation='relu')``` layer
+   * Added ```Dropout(units=0.2)``` layer
+   * Added output layer ```Dense(units=10, activation='softmax')```
+- The training process uses Adam's optimizer with ```learning_rate = 0.00001```
+- Training in setting with 500 epochs.
+- Set the callbacks to stop training when ```acc``` and ```val_acc``` reach 95%.
+  
 ## 5. Evaluate Model
+
 ## 6. Export Model
