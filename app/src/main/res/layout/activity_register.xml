@@ -214,7 +214,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout_JenisKelamin"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         app:boxStrokeColor="@color/accentColor"
@@ -222,12 +222,22 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_JenisKelamin">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/jenisKelamin_EditText"
+                        <AutoCompleteTextView
+                            android:id="@+id/dropdown_jk"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="text" />
+                            android:inputType="none"/>
+
+
+
+
+
+<!--                        <com.google.android.material.textfield.TextInputEditText-->
+<!--                            android:id="@+id/jenisKelamin_EditText"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:ems="10"-->
+<!--                            android:inputType="text" />-->
 
 
                     </com.google.android.material.textfield.TextInputLayout>

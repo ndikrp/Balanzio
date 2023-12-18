@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -31,6 +34,16 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val items = listOf("P", "L")
+        val autoComplete : AutoCompleteTextView = findViewById(R.id.dropdown_jk)
+        val adapter = ArrayAdapter(this, R.layout.dropdown_list, items)
+
+        autoComplete.setAdapter(adapter)
+        autoComplete.onItemClickListener = AdapterView.OnItemClickListener {
+                adapterView, view, i, l ->
+            val itemSelected = adapterView.getItemAtPosition(i)
+        }
+
         val tvKlikMasuk = findViewById<View>(R.id.tv_klik_masuk)
         tvKlikMasuk.setOnClickListener {
             goToLogin()
@@ -40,6 +53,15 @@ class RegisterActivity : AppCompatActivity() {
         setupAction()
 
     }
+
+    fun mapGenderToDatabaseValue(selectedGender: String): String {
+        return when (selectedGender) {
+            "P" -> "F"
+            "L" -> "M"
+            else -> selectedGender
+        }
+    }
+
 
     private fun setupView() {
         @Suppress("DEPRECATION")
@@ -59,7 +81,7 @@ class RegisterActivity : AppCompatActivity() {
             val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val pass = binding.passwordEditText.text.toString()
-            val jk = binding.jenisKelaminEditText.text.toString()
+            val jk = binding.dropdownJk.text.toString()
             val bbStr = binding.bbEditText.text.toString()
             val tbStr = binding.tbEditText.text.toString()
             val ageStr = binding.umurEditText.text.toString()
@@ -69,11 +91,14 @@ class RegisterActivity : AppCompatActivity() {
             val tb: Int = if (tbStr.isNotEmpty()) tbStr.toInt() else 0
             val age: Int = if (ageStr.isNotEmpty()) ageStr.toInt() else 0
 
+            // Melakukan pemetaan nilai jenis kelamin
+            val mappedGender = mapGenderToDatabaseValue(jk)
+
             val jsonObject = JSONObject().apply {
                 put(FULL_NAME, name)
                 put(EMAIL, email)
                 put(PASSWORD, pass)
-                put(JK, jk)
+                put(JK, mappedGender)
                 put(BB, bb)
                 put(TB, tb)
                 put(AGE, age)
@@ -103,7 +128,7 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             if (jk.isEmpty()) {
-                binding.jenisKelaminEditText.error = "Jenis Kelamin tidak boleh kosong"
+                binding.dropdownJk.error = "Jenis Kelamin tidak boleh kosong"
                 return@setOnClickListener
             }
             if (ageStr.isEmpty()) {
