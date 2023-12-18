@@ -91,5 +91,62 @@ from sklearn.metrics import confusion_matrix, f1_score
 - Set the callbacks to stop training when ```acc``` and ```val_acc``` reach 95%.
   
 ## 5. Evaluate Model
+- Evaluate the model by looking at the accuracy and loss graphs.
+  ```
+  acc = history.history['acc']
+  val_acc = history.history['val_acc']
 
+  loss = history.history['loss']
+  val_loss = history.history['val_loss']
+
+  epochs_range = range(len(acc))
+
+  plt.figure(figsize=(8, 8))
+  plt.subplot(1, 2, 1)
+  plt.plot(epochs_range, acc, label='Training Accuracy')
+  plt.plot(epochs_range, val_acc, label='Validation Accuracy')
+  plt.legend(loc='lower right')
+  plt.title('Training and Validation Accuracy')
+
+  plt.subplot(1, 2, 2)
+  plt.plot(epochs_range, loss, label='Training Loss')
+  plt.plot(epochs_range, val_loss, label='Validation Loss')
+  plt.legend(loc='upper right')
+  plt.title('Training and Validation Loss')
+  plt.show()
+  ``` 
+- Evaluate test data to get confusion matrix and F1-Score.
+  ```
+  predictions = model.predict(test_ds)
+  y_pred = np.argmax(predictions, axis=1)
+  print("y_pred :",y_pred,"\n")
+  y_true = test_ds.classes
+  print("y_true :",y_true,"\n")
+  confusion = confusion_matrix(y_true, y_pred)
+  
+  plt.figure(figsize=(8, 6))
+  plt.imshow(confusion, cmap=plt.cm.Blues)
+  plt.title('Confusion Matrix')
+  plt.colorbar()
+
+  num_classes = len(np.unique(y_true))
+  tick_marks = np.arange(num_classes)
+  plt.xticks(tick_marks, range(num_classes))
+  plt.yticks(tick_marks, range(num_classes))
+
+  plt.xlabel('Predicted')
+  plt.ylabel('True')
+
+  for i in range(num_classes):
+    for j in range(num_classes):
+        plt.text(j, i, confusion[i, j],
+                 horizontalalignment='center',
+                 color='white' if confusion[i, j] > (confusion.max() / 2) else 'black')
+
+  plt.tight_layout()
+  plt.show()
+
+  f1 = f1_score(y_true, y_pred, average='weighted')
+  print("\nF1 Score:", f1)
+  ``` 
 ## 6. Export Model
