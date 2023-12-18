@@ -52,5 +52,9 @@ MobileNet Model is a deep learning model for classifying food image. This model 
 
   ![image](https://github.com/ndikrp/Balanzio/assets/142479564/d523bd91-5867-424a-91a7-1c2af63e77c1)
 
+### 6. Export Model
+- Export model to tflite format.
+  
+
   
 
