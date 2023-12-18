@@ -17,7 +17,7 @@ Hello, this is Balanzio Mobile Development Team CH2-PS340
 
 |  Name | Bangkit ID | Contacts |
 | ------------ | ------------ | ------------ |
-| M Faiq Al Abiyyi | A296BSY2126 | [Github](https://github.com/FaiqAbiyyi666) & [Linkedin](link)|
+| M Faiq Al Abiyyi | A296BSY2126 | [Github](https://github.com/FaiqAbiyyi666) & [Linkedin](https://www.linkedin.com/in/faiqabiyyi/)|
 | Dea Ayuninda	 | A612BSX2560	| [Github](https://github.com/DeaAyuninda05) & [Linkedin](https://www.linkedin.com/in/dea-ayuninda/) |
 
 # Balanzio-Cloud Computing
