@@ -157,3 +157,5 @@ from sklearn.metrics import confusion_matrix, f1_score
   with open('model.tflite', 'wb') as f:
   f.write(tflite_model)
   ```
+## 7. Result
+The results can be seen in the following [link](https://github.com/ndikrp/Balanzio/blob/Machine-Learning/Model/Notebook.md)
