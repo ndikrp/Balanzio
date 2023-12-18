@@ -91,7 +91,15 @@ MobileNet Model is a deep learning model for classifying food image. This model 
 
 ### 6. Export Model
 - Export model to tflite format.
-  
+   ```
+  # Convert the model.
+  converter = tf.lite.TFLiteConverter.from_keras_model(model)
+  tflite_model = converter.convert()
+
+  # Save the model.
+  with open('model.tflite', 'wb') as f:
+  f.write(tflite_model)
+  ```
 
   
 
