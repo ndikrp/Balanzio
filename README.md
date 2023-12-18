@@ -6,8 +6,9 @@ HELLO, We are the Machine Learning team of Balanzio!
 The Balanzio model is an architectural model used by the Balanzio application to be able to produce accurate food image predictions.
 
 # Instructions
-## 1. Data Gathering
-## 2. Data Prepocessing
-## 3. Training Model
-## 4. Evaluate Model
-## 5. Export Model
+## 1. Install Packages & Libraries
+## 2. Data Gathering
+## 3. Data Prepocessing
+## 4. Training Model
+## 5. Evaluate Model
+## 6. Export Model
