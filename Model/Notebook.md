@@ -11,16 +11,52 @@ MobileNet Model is a deep learning model for classifying food image. This model 
 ### 2. Data Prepocessing
 * Perform data cleaning by deleting image data that does not represent a certain category.
 * The dataset is divided into 3 folders, namely train (70%), validation (20%), test (10%).
-* Resize the image to `150x150` pixels.
-* Change all image color to rgb.
 * In the data train the data augmentation method is applied to add diversity to the dataset with the following details
   ```
+  rescale=1./255.
   horizontal_flip = True
   rotation_range = 0.2
   zoom_range = 0.2
   width_shift_range = 0.2
   height_shift_range = 0.2
   ```
+* Resize the image to `150x150` pixels.
+  ```
+  img_height = 150
+  img_width = 150
+  ```
+* Change all image color to rgb and shuffle the train and validation data so that the model does not learn from sequence patterns that may exist in the data.
+  ```
+  train_ds = train_generator.flow_from_directory(
+    directory = train_dir,
+    target_size = (img_height, img_width),
+    color_mode = 'rgb',
+    class_mode = 'categorical',
+    batch_size = train_batch_size,
+    shuffle = True,
+    seed = 42,
+  )
+
+  val_ds = val_generator.flow_from_directory(
+    directory = val_dir,
+    target_size = (img_height, img_width),
+    color_mode = 'rgb',
+    class_mode = 'categorical',
+    batch_size = val_batch_size,
+    shuffle = True,
+    seed = 42,
+  )
+
+  test_ds = test_generator.flow_from_directory(
+    directory = test_dir,
+    target_size = (224, 224),
+    color_mode = 'rgb',
+    class_mode = 'categorical',
+    batch_size = test_batch_size,
+    shuffle = False
+  )
+  ```
+
 
 ### 3. Training Model
 - Training using transfer learning method. Transfer learning is the reuse of knowledge from previously trained models to perform new tasks. The transfer learning model (pre-trained model) used is image feature extraction with MobileNetV2 architecture that has been trained on ImageNet.
