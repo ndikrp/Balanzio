@@ -46,8 +46,9 @@ MobileNet Model is a deep learning model for classifying food image. This model 
  
 ### 5. Evaluate Model
 - Evaluate test data to get confusion matrix and F1-Score.
-  ![image](https://github.com/ndikrp/Balanzio/assets/142479564/8c9148a7-8a37-4ced-8eba-aa046180e00d)
   
+  ![image](https://github.com/ndikrp/Balanzio/assets/142479564/b4a2d3f9-fa8b-41f2-98e9-eea863444e79)
+  * F1-Score       : 0.866
 - Review the prediction.
 
   ![image](https://github.com/ndikrp/Balanzio/assets/142479564/d523bd91-5867-424a-91a7-1c2af63e77c1)
