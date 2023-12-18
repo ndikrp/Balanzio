@@ -80,7 +80,6 @@ MobileNet Model is a deep learning model for classifying food image. This model 
   * val_loss    : 0.3476
   * val_accuracy: 0.9010
  
-### 5. Evaluate Model
 - Evaluate test data to get confusion matrix and F1-Score.
   
   ![image](https://github.com/ndikrp/Balanzio/assets/142479564/b4a2d3f9-fa8b-41f2-98e9-eea863444e79)
@@ -89,7 +88,7 @@ MobileNet Model is a deep learning model for classifying food image. This model 
 
   ![image](https://github.com/ndikrp/Balanzio/assets/142479564/d523bd91-5867-424a-91a7-1c2af63e77c1)
 
-### 6. Export Model
+### 5. Export Model
 - Export model to tflite format.
    ```
   # Convert the model.
