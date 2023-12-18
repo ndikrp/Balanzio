@@ -35,3 +35,12 @@ MobileNet Model is a deep learning model for classifying food image. This model 
 - Training in setting with 500 epochs.
 - Set the callbacks to stop training when ```acc``` and ```val_acc``` reach 95%.
 
+### 4. Evaluate Model
+![image](https://github.com/ndikrp/Balanzio/assets/142479564/96e7652b-327c-4c11-9535-c9c0fe387e12)
+- Training reach 500 from 500 epoch.
+- Result
+  * loss        : 0.0203
+  * accuracy    : 0.9911
+  * val_loss    : 0.3476
+  * val_accuracy: 0.9010
+
