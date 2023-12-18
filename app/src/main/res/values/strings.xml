@@ -55,4 +55,6 @@
     <string name="dummy_pembuatan_detail">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n2. Etiam laoreet purus at dolor condimentum consequat vel quis justo. \n3. Sed at arcu dictum, euismod augue et, rhoncus diam. Nullam interdum tortor et tempus commodo. \n4. Integer fringilla nibh id magna aliquet, vel volutpat eros auctor. Sed pulvinar purus ut suscipit lacinia. Proin ullamcorper ex id velit semper, hendrerit ultrices nisi tincidunt. \n5. Vestibulum convallis justo sagittis dolor tincidunt pretium. Proin feugiat urna tempor ligula mollis varius. Sed iaculis felis eu mollis rhoncus.</string>
     <string name="favorit">Favorit</string>
     <string name="title_goals">Total kalori harianmu</string>
+    <string name="preview">Pratinjau Gambar</string>
+    <string name="akurasi">Akurasi</string>
 </resources>
