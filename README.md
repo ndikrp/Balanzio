@@ -150,3 +150,10 @@ from sklearn.metrics import confusion_matrix, f1_score
   print("\nF1 Score:", f1)
   ``` 
 ## 6. Export Model
+- Export model to tflite format.
+   ```
+  converter = tf.lite.TFLiteConverter.from_keras_model(model)
+  tflite_model = converter.convert()
+  with open('model.tflite', 'wb') as f:
+  f.write(tflite_model)
+  ```
