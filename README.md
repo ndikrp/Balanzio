@@ -25,12 +25,21 @@ from sklearn.metrics import confusion_matrix, f1_score
 ## 3. Data Prepocessing
 - Perform data augmentation for data train, valid, and test to add diversity to the dataset with the following details
   ```
-  rescale=1./255.
-  horizontal_flip = True
-  rotation_range = 0.2
-  zoom_range = 0.2
-  width_shift_range = 0.2
-  height_shift_range = 0.2
+  train_generator = tf.keras.preprocessing.image.ImageDataGenerator(
+    rescale=1./255.,
+    horizontal_flip = True,
+    rotation_range = 0.2,
+    zoom_range = 0.2,
+    width_shift_range = 0.2,
+    height_shift_range = 0.2,
+  )
+
+   val_generator = tf.keras.preprocessing.image.ImageDataGenerator(
+    rescale=1./255.
+  )
+   test_generator = tf.keras.preprocessing.image.ImageDataGenerator(
+    rescale=1./255.
+  )
   ```
 - Resize the image to `150x150` pixels.
   ```
