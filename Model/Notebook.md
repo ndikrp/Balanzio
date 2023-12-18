@@ -23,3 +23,15 @@ MobileNet Model is a deep learning model for classifying food image. This model 
   ```
 
 ### 3. Training Model
+- Training using transfer learning method. Transfer learning is the reuse of knowledge from previously trained models to perform new tasks. The transfer learning model (pre-trained model) used is image feature extraction with MobileNetV2 architecture that has been trained on ImageNet.
+- This architecture was chosen because it can produce high accuracy and produce a tflite model with a small size, making it easy to deploy on Android.
+- Perform freeze layer technique on all layers on MobileNetV2. Then the transfer learning model is added with several layers to make the model accuracy more better
+   * Added ```Flatten()``` layer
+   * Added ```Dense(units=2048, activation='relu')``` layer
+   * Added ```Dense(units=2048, activation='relu')``` layer
+   * Added ```Dropout(units=0.2)``` layer
+   * Added output layer ```Dense(units=10, activation='softmax')```
+- The training process uses Adam's optimizer with ```learning_rate = 0.00001```
+- Training in setting with 500 epochs.
+- Set the callbacks to stop training when ```acc``` and ```val_acc``` reach 95%.
+
