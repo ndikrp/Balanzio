@@ -16,7 +16,10 @@ We hope this app empowers you to regulate and track your dietary nutrition effec
 3. Material Component
 4. Navigation Component
 
-## Third-part libaries
+Third-part libaries
+1. Glide [Repo](https://github.com/bumptech/glide)
+2. Retrofit [Repo](https://github.com/square/retrofit)
+3. Okhttp-Logging Interceptor [Repo](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor)
 
 # Getting Started
 
@@ -25,13 +28,25 @@ Mobile phone with android os
 
 ## Installation
 Instal on Phone
+1. Go to realease
+2. Choose the lastest
+3. Click on apk
+4. The apps will be downloaded
+5. Install on your phone
 
 Android Studio 
 1. Clone The Repository
-2. Build the Apps
+   ```sh
+   git clone https://github.com/ndikrp/Balanzio.git
+   ```
+3. Build the Apps
+   ```sh
+   Run app or Shift + F10
+   ```
 
 ## Usage
 Apps Demo click the banner for demo video
+[![Balanzio demo](https://github.com/ndikrp/Balanzio/blob/2a3cc65013e0dd80eeece7ecf92419809dbc505f/assets/Banner%20Github%202.png)](https://youtu.be/tmEYBl5ns_k "Balanzio demo")
 
 # Mobile Development Team
 |  Name | Bangkit ID | Contacts |
